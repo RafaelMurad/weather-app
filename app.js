@@ -16,7 +16,8 @@ request({ url: url, json: true }, (error, response) => {
     console.log(
       `${response.body.current.weather_descriptions[0]}: it is currently ${temperature} degrees outside, but it feels like ${feelslike}`
     );
-  } else {
+    return
+  } 
     console.log(`No data found on URL: ${url}`);
-  }
+  
 });
