@@ -9,6 +9,11 @@ request({ url: url, json: true }, (error, response) => {
     return;
   }
 
+  if (response.body.error) {
+    console.log("Unable to find location!");
+    return;
+  }
+
   if (response.body && response.body.current) {
     const temperature = response.body.current.temperature;
     const feelslike = response.body.current.feelslike;
@@ -18,7 +23,6 @@ request({ url: url, json: true }, (error, response) => {
     );
     return;
   }
-  console.log(`No data found on URL: ${url}`);
 });
 
 // Geocoding API
@@ -28,7 +32,12 @@ const geocoding =
 
 request({ url: geocoding, json: true }, (error, response) => {
   if (error) {
-    console.log(error);
+    console.log("Unable to connect to location services");
+    return;
+  }
+
+  if (response.body.features.length === 0) {
+    console.log("Location not found, try another search!");
     return;
   }
 
