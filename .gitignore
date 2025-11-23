@@ -1,2 +1,37 @@
-node_modules
-.vscode
+# Dependencies
+node_modules/
+
+# Uploaded files (don't commit user uploads)
+uploads/images/*
+uploads/videos/*
+uploads/documents/*
+!uploads/images/.gitkeep
+!uploads/videos/.gitkeep
+!uploads/documents/.gitkeep
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Test coverage
+coverage/
+
+# Build output
+dist/
+build/
